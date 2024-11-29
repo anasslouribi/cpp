@@ -3,7 +3,8 @@
 
 Zombie::Zombie(const std::string name)
 {
-	if (name == "") {
+	if (name == "")
+    {
 		std::cout << "Error. Zombie need a name." << std::endl;
 		return;
 	}
@@ -11,6 +12,7 @@ Zombie::Zombie(const std::string name)
 	announce();
 }
 
-void Zombie::announce() {
+void Zombie::announce()
+{
 	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
