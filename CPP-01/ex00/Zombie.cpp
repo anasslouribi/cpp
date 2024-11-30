@@ -5,11 +5,15 @@ Zombie::Zombie(const std::string name)
 {
 	if (name == "")
     {
-		std::cout << "Error. Zombie need a name." << std::endl;
+		std::cout << "GIVE A NAME" << std::endl;
 		return;
 	}
     this->_name = name;
 	announce();
+}
+Zombie::~Zombie()
+{
+	std::cout << this->_name << ": Dies" << std::endl;
 }
 
 void Zombie::announce()
