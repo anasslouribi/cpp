@@ -6,12 +6,18 @@
 /*   By: alouribi <alouribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 16:03:58 by alouribi          #+#    #+#             */
-/*   Updated: 2024/11/28 18:23:41 by alouribi         ###   ########.fr       */
+/*   Updated: 2024/12/01 16:46:45 by alouribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
+
+void agust_line(std::string line)
+{
+	for (int i = 10 - line.length(); i > 0; i--)
+		std::cout << " ";
+}
 void print(std::string line)
 {
 	if (line.length() > 10)
@@ -20,17 +26,18 @@ void print(std::string line)
 	}	
 	else
 	{
-		std::cout << std::setw(10) << line  << "|";
+		agust_line(line);
+		std::cout << line  << "|";
 	}
 }
 
-void print2(PhoneBook rep, int i)
+void print2(Contact cont)
 {
-	std::cout << "First name: " << rep.cont[i].f_name << std::endl;
-	std::cout << "Last name: " << rep.cont[i].l_name << std::endl;
-	std::cout << "Nickname: " << rep.cont[i].n_name << std::endl;
-	std::cout << "Phone number: " << rep.cont[i].phone_n << std::endl;
-	std::cout << "Darkest secret: " << rep.cont[i].d_secret << std::endl;
+	std::cout << "First name: " << cont.getFirstName() << std::endl;
+	std::cout << "Last name: " << cont.getLastName() << std::endl;
+	std::cout << "Nickname: " << cont.getNickname() << std::endl;
+	std::cout << "Phone number: " << cont.getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret: " << cont.getDarkestSecret() << std::endl;
 }
 
 bool ft_isspace(std::string str)
@@ -87,6 +94,7 @@ int main()
 	std::string line;
 	std::string tmp;
 	PhoneBook rep;
+	Contact cont;
 	static int i;
 	int lenght = 0;
 
@@ -104,16 +112,18 @@ int main()
 		}
 		if (line == "ADD")
 		{
+			cont = rep.getContact(i);
 			std::cout << "First name:" << std::endl;
-			rep.cont[i].f_name = get_input("First name:");
+			cont.setFirstName(get_input("First name:"));
 			std::cout << "Last name:" << std::endl;
-			rep.cont[i].l_name = get_input("Last name:");
+			cont.setLastName(get_input("Last name:"));
 			std::cout << "Nickname:" << std::endl;
-			rep.cont[i].n_name = get_input("Nickname:");
+			cont.setNickname(get_input("Nickname:"));
 			std::cout << "Phone number:" << std::endl;
-			rep.cont[i].phone_n = get_input2("Phone number:");
+			cont.setPhoneNumber(get_input2("Phone number:"));
 			std::cout << "Darkest secret:" << std::endl;
-			rep.cont[i].d_secret = get_input("Darkest secret:");
+			cont.setDarkestSecret(get_input("Darkest secret:"));
+			rep.addContact(cont, i);
 			if (lenght != 8)
 				lenght = ++i;
 			if (i == 8)
@@ -132,10 +142,11 @@ int main()
 				std::cout << "|     index|first name| last name|  nickname|" << std::endl;
 				for (int j = 0; j < lenght; j++)
 				{
+					cont = rep.getContact(j);
 					std::cout << "|         " << j + 1 << "|";
-					print(rep.cont[j].f_name);
-					print(rep.cont[j].l_name);
-					print(rep.cont[j].n_name);
+					print(cont.getFirstName());
+					print(cont.getLastName());
+					print(cont.getNickname());
 					std::cout << std::endl;
 				}
 				std::string ind;
@@ -154,7 +165,7 @@ int main()
 				else
 				{
 					system("clear");
-					print2(rep, --index);
+					print2(rep.getContact(--index));
       			 	std::cout << std::endl << "Press enter to continue..." << std::endl;
 					std::cin.get();
 				}
