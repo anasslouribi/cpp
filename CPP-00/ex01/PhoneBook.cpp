@@ -6,7 +6,7 @@
 /*   By: alouribi <alouribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 16:03:58 by alouribi          #+#    #+#             */
-/*   Updated: 2024/12/01 16:46:45 by alouribi         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:03:21 by alouribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,9 @@ int main()
 			std::cout << "Darkest secret:" << std::endl;
 			cont.setDarkestSecret(get_input("Darkest secret:"));
 			rep.addContact(cont, i);
+			++i;
 			if (lenght != 8)
-				lenght = ++i;
+				lenght = i;
 			if (i == 8)
 				i = 0;
 		}

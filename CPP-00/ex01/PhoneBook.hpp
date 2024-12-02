@@ -6,7 +6,7 @@
 /*   By: alouribi <alouribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:42:51 by alouribi          #+#    #+#             */
-/*   Updated: 2024/12/01 16:43:35 by alouribi         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:22:45 by alouribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,8 @@ class PhoneBook
         Contact cont[8];
 
     public:
-        void addContact(const Contact& contact, int i)
-        {
-            cont[i] = contact;
-        }
-        Contact getContact(int index) const
-        {
-            if (index < 0 || index >= 8)
-            {
-                throw std::out_of_range("Invalid contact index.");
-            }
-            return cont[index];
-        }
+        void addContact(Contact contact, int i);
+        Contact getContact(int index);
 };
 
 #endif
