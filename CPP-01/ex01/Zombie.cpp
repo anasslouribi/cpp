@@ -1,4 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alouribi <alouribi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/03 18:00:29 by alouribi          #+#    #+#             */
+/*   Updated: 2024/12/03 18:00:29 by alouribi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "Zombie.hpp"
+
+Zombie::Zombie() : name("")
+{}
 
 Zombie::Zombie(const std::string name)
 {
@@ -12,7 +28,7 @@ Zombie::Zombie(const std::string name)
 }
 Zombie::~Zombie()
 {
-	std::cout << this->name << " Dies" << std::endl;
+	std::cout << this->name << " Finished" << std::endl;
 }
 
 void Zombie::announce()

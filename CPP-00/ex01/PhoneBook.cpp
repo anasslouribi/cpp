@@ -6,7 +6,7 @@
 /*   By: alouribi <alouribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 16:03:58 by alouribi          #+#    #+#             */
-/*   Updated: 2024/12/02 16:03:21 by alouribi         ###   ########.fr       */
+/*   Updated: 2024/12/02 18:44:08 by alouribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,12 +150,12 @@ int main()
 					print(cont.getNickname());
 					std::cout << std::endl;
 				}
-				std::string ind;
+				std::string idx;
 				int index;
 				std::cout << "-->";
-				std::getline(std::cin, ind);
+				std::getline(std::cin, idx);
 				std::cout << std::endl;
-				std::istringstream iss(ind);
+				std::istringstream iss(idx);
     			if (!(iss >> index) || index > lenght || index < 0) 
 				{
 					system("clear");

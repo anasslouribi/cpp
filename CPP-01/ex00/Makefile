@@ -10,7 +10,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	c++ $(FLAGS) $(OBJ) -o $(NAME)
 
-./%.opp: ./%.cpp
+./%.opp: ./%.cpp ./Zombie.hpp
 	c++ $(FLAGS) -c $< -o $@
 
 clean:
